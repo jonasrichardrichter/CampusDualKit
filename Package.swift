@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "CampusDualKit",
             dependencies: []),
-        .testTarget(
-            name: "CampusDualKitTests",
-            dependencies: ["CampusDualKit"]),
     ]
 )
