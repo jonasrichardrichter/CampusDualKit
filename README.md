@@ -1,3 +1,3 @@
 # CampusDualKit
 
-A description of this package.
+🏫 Swift package to connect to Campus Dual at Berufsakademie Sachsen.
