@@ -164,3 +164,4 @@ xcuserdata
 
 Tests/ScheduleTests/TestRequest.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.swiftpm/xcode/*
