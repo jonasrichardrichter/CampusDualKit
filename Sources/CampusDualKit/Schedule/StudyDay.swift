@@ -8,11 +8,13 @@
 import Foundation
 
 /// A model representing a study day.
-public struct StudyDay: Codable, Hashable {
+public struct StudyDay: Decodable, Hashable {
     
     // The date of the study day.
-    public var day: Date
+    var day: Date
     // The lessons of the study day.
-    public var lessons: [Lesson]
+    var lessons: [Lesson]
+    
+    static let example = StudyDay(day: Date.init(timeIntervalSince1970: 1793055600), lessons: [Lesson.example])
 
 }

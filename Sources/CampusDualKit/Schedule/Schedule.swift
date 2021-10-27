@@ -79,7 +79,8 @@ public struct Schedule {
                 
                 logger.info("Created new StudyDay: \(String(describing: tempStudyDay))")
                 
-            } else if Calendar.current.isDate(lesson.start, inSameDayAs: Date(tempDay, strategy: .dateTime.year().month().day())!) {
+            } else if Calendar.current.isDate(lesson.start,
+                                              inSameDayAs: try! Date(tempDay, strategy: .dateTime.year().month().day())) {
                 
                 // Second case: Another lesson on the same day.
                 

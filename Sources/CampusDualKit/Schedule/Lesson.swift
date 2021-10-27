@@ -8,19 +8,19 @@
 import Foundation
 
 /// A model representing a lesson.
-public struct Lesson: Codable, Hashable {
+public struct Lesson: Decodable, Hashable {
     /// The title of the lesson.
-    public var  title: String
+    public var title: String
     /// The start time of the lesson.
-    public var  start: Date
+    public var start: Date
     /// The end time of the lesson.
-    public var  end: Date
+    public var end: Date
     /// The description of the lesson.
-    public var  description: String
+    public var description: String
     /// The room number of the lesson.
-    public var  room: String
+    public var room: String
     /// The instructor of the lesson.
-    public var  instructor: String
+    public var instructor: String
     
     enum CodingKeys: String, CodingKey {
         case title = "title"
@@ -30,4 +30,6 @@ public struct Lesson: Codable, Hashable {
         case room = "room"
         case instructor = "instructor"
     }
+    
+    static let example = Lesson(title: "Example lesson", start: Date.init(timeIntervalSince1970: 1793097900), end: Date.init(timeIntervalSince1970: 1793103300), description: "This is an example lesson", room: "1.202", instructor: "Prof. Dr. Example")
 }
