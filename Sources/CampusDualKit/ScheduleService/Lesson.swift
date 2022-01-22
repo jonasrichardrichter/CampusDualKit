@@ -31,5 +31,6 @@ public struct Lesson: Decodable, Hashable {
         case instructor = "instructor"
     }
     
+    /// An example lesson
     public static let example = Lesson(title: "Example lesson", start: Date.init(timeIntervalSince1970: 1793097900), end: Date.init(timeIntervalSince1970: 1793103300), description: "This is an example lesson", room: "1.202", instructor: "Prof. Dr. Example")
 }

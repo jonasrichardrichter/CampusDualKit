@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "CampusDualKit",
     platforms: [
-        .iOS(.v15), .macOS(.v12), .watchOS(.v8)
+        .iOS(.v14), .macOS(.v11), .watchOS(.v7)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -26,13 +26,14 @@ let package = Package(
             name: "CampusDualKit",
             dependencies: [
                 .product(name: "Logging", package: "swift-log"),
-            ]),
+            ])
         
-        .testTarget(
+        // Currently no testing :(
+        /*.testTarget(
             name: "ScheduleTests",
             dependencies: ["CampusDualKit"],
             resources: [
                 .copy("TestRequest.json")
-            ])
+            ])*/
     ]
 )
