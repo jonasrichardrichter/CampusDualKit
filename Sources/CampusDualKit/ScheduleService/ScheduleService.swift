@@ -41,7 +41,7 @@ public struct ScheduleService {
         
         // Check if credentials are correct.
         // Request current credit points, if request is successful -> Credentials are correct
-        guard let url = URL(string: "?user=\(username)%hash=\(password)", relativeTo: URL.CampusDual.creditPoints) else {
+        guard let url = URL(string: "?user=\(username)&hash=\(password)", relativeTo: URL.CampusDual.creditPoints) else {
             completion(.failure(.invalidURL))
             return
         }
