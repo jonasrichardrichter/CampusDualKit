@@ -16,7 +16,7 @@ public struct StudyDay: Decodable, Hashable {
     /// The lessons of the study day.
     public var lessons: [Lesson]
     
-    /// Example StudyDay with a example lesson.
+    /// Example StudyDay with an example lesson.
     public static let example = StudyDay(day: Date.init(timeIntervalSince1970: 1793055600), lessons: [Lesson.example])
 
 }

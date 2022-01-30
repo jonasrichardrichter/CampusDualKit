@@ -10,6 +10,7 @@ import Foundation
 public enum ScheduleServiceError: Error {
     case invalidURL
     case wrongCredentials
+    case decoding(Error?)
     case network(Error?)
     case other(Error?)
 }
