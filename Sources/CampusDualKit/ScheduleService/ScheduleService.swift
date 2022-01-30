@@ -157,7 +157,7 @@ public struct ScheduleService {
                         
                 self.logger.debug("Created new StudyDay: \(String(describing: tempStudyDay))")
                         
-            } else if Calendar.current.isDate(lesson.start, inSameDayAs: dateFormatter.date(from: tempDay)) {
+            } else if Calendar.current.isDate(lesson.start, inSameDayAs: dateFormatter.date(from: tempDay)!) {
                         
                 // Second case: Another lesson on the same day.
                         
