@@ -17,6 +17,7 @@ public struct Lesson: Decodable, Hashable {
         self.end = end
         self.description = description
         self.room = room
+        self.instructor = instructor
     }
     
     /// The title of the lesson.
