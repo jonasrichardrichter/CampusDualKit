@@ -33,10 +33,12 @@ public struct ScheduleService {
         
         if username.isEmpty {
             completion(.failure(.wrongCredentials))
+            return
         }
         
         if password.isEmpty {
             completion(.failure(.wrongCredentials))
+            return
         }
         
         // Check if credentials are correct.
