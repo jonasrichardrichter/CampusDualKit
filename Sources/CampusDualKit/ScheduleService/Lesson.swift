@@ -9,6 +9,16 @@ import Foundation
 
 /// A model representing a lesson.
 public struct Lesson: Decodable, Hashable {
+    
+    /// The initializer for the struct.
+    public init(title: String, start: Date, end: Date, description: String, room: String, instructor: String) {
+        self.title = title
+        self.start = start
+        self.end = end
+        self.description = description
+        self.room = room
+    }
+    
     /// The title of the lesson.
     public var title: String
     /// The start time of the lesson.

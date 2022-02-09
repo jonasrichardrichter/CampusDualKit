@@ -10,6 +10,12 @@ import Foundation
 /// A model representing a study day.
 public struct StudyDay: Decodable, Hashable {
     
+    /// The initializer for the struct.
+    public init(day: Date, lessons: [Lesson]) {
+        self.day = day
+        self.lessons = lessons
+    }
+    
     /// The date of the study day.
     public var day: Date
     
