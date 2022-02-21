@@ -149,11 +149,7 @@ public struct ScheduleService {
                         
                 // First case: First lesson of the array.
                         
-                if #available(iOS 15.0, macOS 12.0, *) {
-                    tempDay = lesson.start.formatted(.dateTime.year().month().day())
-                } else {
-                    tempDay = dateFormatter.string(from: lesson.start)
-                }
+               tempDay = dateFormatter.string(from: lesson.start)
                 
                 tempStudyDay = StudyDay(day: lesson.start, lessons: [lesson])
                         
@@ -176,11 +172,7 @@ public struct ScheduleService {
                         
                 self.logger.debug("StudyDay added: \(String(describing: tempStudyDay))")
                         
-                if #available(iOS 15.0, macOS 12.0, *) {
-                    tempDay = lesson.start.formatted(.dateTime.year().month().day())
-                } else {
-                    tempDay = dateFormatter.string(from: lesson.start)
-                }
+                tempDay = dateFormatter.string(from: lesson.start)
                         
                 tempStudyDay = StudyDay(day: lesson.start, lessons: [lesson])
                         
