@@ -101,7 +101,7 @@ public struct ScheduleService {
         session.scheduleServiceDataTask(request: request, session: session) { (result: Result<[Lesson], ScheduleServiceError>) in
             switch result {
             case .success(let data):
-                let sortedStudyDays = self.sortLessonsToStudyDays(data)
+                let sortedStudyDays = self.sortLessonsToStudyDays(data, startDate: startDate)
                 
                 completion(.success(sortedStudyDays))
             case .failure(let error):
@@ -134,7 +134,7 @@ public struct ScheduleService {
     /// - Parameters:
     ///     - _: The array to be sorted.
     /// - Returns: A sorted array of StudyDay with sorted lessons.
-    private func sortLessonsToStudyDays(_ array: [Lesson]) -> [StudyDay] {
+    private func sortLessonsToStudyDays(_ array: [Lesson], startDate: Date) -> [StudyDay] {
         
         var tempDay: String = ""
         
@@ -143,51 +143,59 @@ public struct ScheduleService {
         
         var tempStudyDay: StudyDay?
         var returnArray: [StudyDay] = []
-                
+        
         for lesson in array {
             if tempDay == "" {
-                        
+                
+                // Check if lesson is before start date
+                if !Calendar.current.isDate(lesson.start, inSameDayAs: startDate) {
+                    if lesson.start < startDate {
+                        continue
+                    }
+                }
+                    
+                
                 // First case: First lesson of the array.
-                        
-               tempDay = dateFormatter.string(from: lesson.start)
+                
+                tempDay = dateFormatter.string(from: lesson.start)
                 
                 tempStudyDay = StudyDay(day: lesson.start, lessons: [lesson])
-                        
+                
                 self.logger.debug("Created new StudyDay: \(String(describing: tempStudyDay))")
-                        
+                
             } else if Calendar.current.isDate(lesson.start, inSameDayAs: dateFormatter.date(from: tempDay)!) {
-                        
+                
                 // Second case: Another lesson on the same day.
-                        
+                
                 tempStudyDay!.lessons.append(lesson)
-                        
+                
                 self.logger.debug("Updated StudyDay: \(String(describing: tempStudyDay))")
-                        
+                
             } else {
-                        
+                
                 // Third case: First lesson of a new day.
-                        
+                
                 // Append to return Array and reset tempStudyDay
                 returnArray.append(tempStudyDay!)
-                        
+                
                 self.logger.debug("StudyDay added: \(String(describing: tempStudyDay))")
-                        
+                
                 tempDay = dateFormatter.string(from: lesson.start)
-                        
+                
                 tempStudyDay = StudyDay(day: lesson.start, lessons: [lesson])
-                        
+                
                 self.logger.debug("Created new StudyDay: \(String(describing: tempStudyDay))")
-                        
+                
             }
-                                
+            
         }
-                
+        
         // Add last StudyDay to return Array
-                
+        
         returnArray.append(tempStudyDay!)
-                
+        
         self.logger.debug("StudyDay added: \(String(describing: tempStudyDay))")
-                
+        
         return returnArray
     }
 }
