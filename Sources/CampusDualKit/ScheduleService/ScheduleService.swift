@@ -148,10 +148,12 @@ public struct ScheduleService {
             if tempDay == "" {
                 
                 // Check if lesson is before start date
-                
-                if lesson.start < startDate {
-                    continue
+                if !Calendar.current.isDate(lesson.start, inSameDayAs: startDate) {
+                    if lesson.start < startDate {
+                        continue
+                    }
                 }
+                    
                 
                 // First case: First lesson of the array.
                 
