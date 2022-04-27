@@ -8,7 +8,7 @@
 import Foundation
 
 /// A model representing a study day.
-public struct StudyDay: Encodable, Hashable {
+public struct StudyDay: Codable, Hashable {
     
     /// The initializer for the struct.
     public init(day: Date, lessons: [Lesson]) {
