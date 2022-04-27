@@ -8,7 +8,7 @@
 import Foundation
 
 /// A model representing a lesson.
-public struct Lesson: Decodable, Hashable {
+public struct Lesson: Codable, Hashable {
     
     /// The initializer for the struct.
     public init(title: String, start: Date, end: Date, description: String, room: String, instructor: String) {

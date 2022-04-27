@@ -154,7 +154,6 @@ public struct ScheduleService {
                     }
                 }
                     
-                
                 // First case: First lesson of the array.
                 
                 tempDay = dateFormatter.string(from: lesson.start)
