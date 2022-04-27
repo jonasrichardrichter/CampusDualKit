@@ -9,6 +9,17 @@ import Foundation
 
 /// A model representing a lesson.
 public struct Lesson: Decodable, Hashable {
+    
+    /// The initializer for the struct.
+    public init(title: String, start: Date, end: Date, description: String, room: String, instructor: String) {
+        self.title = title
+        self.start = start
+        self.end = end
+        self.description = description
+        self.room = room
+        self.instructor = instructor
+    }
+    
     /// The title of the lesson.
     public var title: String
     /// The start time of the lesson.
@@ -31,5 +42,6 @@ public struct Lesson: Decodable, Hashable {
         case instructor = "instructor"
     }
     
+    /// An example lesson
     public static let example = Lesson(title: "Example lesson", start: Date.init(timeIntervalSince1970: 1793097900), end: Date.init(timeIntervalSince1970: 1793103300), description: "This is an example lesson", room: "1.202", instructor: "Prof. Dr. Example")
 }
