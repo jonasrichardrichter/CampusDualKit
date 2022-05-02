@@ -35,23 +35,23 @@ extension ScheduleServiceError: LocalizedError {
         case .decoding(let error):
             switch Locale.current.languageCode {
             case "de":
-                return "Es ist ein Fehler bei der Verarbeitung der Daten aufgetreten. Mehr Informationen: \(error?.localizedDescription)"
+                return "Es ist ein Fehler bei der Verarbeitung der Daten aufgetreten. Mehr Informationen: \(String(describing: error?.localizedDescription))"
             default:
-                return "An error occurred while processing the data. More information: \(error?.localizedDescription)"
+                return "An error occurred while processing the data. More information: \(String(describing: error?.localizedDescription))"
             }
         case .network(let error):
             switch Locale.current.languageCode {
             case "de":
-                return "Es ist ein Netzwerkfehler aufgetreten. Mehr Informationen: \(error?.localizedDescription)"
+                return "Es ist ein Netzwerkfehler aufgetreten. Mehr Informationen: \(String(describing: error?.localizedDescription))"
             default:
-                return "A network error occurred. More information: \(error?.localizedDescription)"
+                return "A network error occurred. More information: \(String(describing: error?.localizedDescription))"
             }
         case .other(let error):
             switch Locale.current.languageCode {
             case "de":
-                return "Ein unbekannter Fehler ist aufgetreten. Mehr Informationen: \(error?.localizedDescription)"
+                return "Ein unbekannter Fehler ist aufgetreten. Mehr Informationen: \(String(describing: error?.localizedDescription))"
             default:
-                return "An unknown error has occurred. More information: \(error?.localizedDescription)"
+                return "An unknown error has occurred. More information: \(String(describing: error?.localizedDescription))"
             }
         }
     }

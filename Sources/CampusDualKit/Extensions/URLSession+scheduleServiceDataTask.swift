@@ -21,7 +21,7 @@ internal extension URLSession {
                 return
             }
             
-            guard let response = response, let data = data else {
+            guard let _ = response, let data = data else {
                 completion(.failure(.network(nil)))
                 return
             }

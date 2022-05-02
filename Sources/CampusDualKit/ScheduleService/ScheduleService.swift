@@ -73,7 +73,12 @@ public struct ScheduleService {
     public static func login(for username: String, with password: String, session: URLSession = .shared) async throws -> ScheduleService {
         try await withCheckedThrowingContinuation() { continuation in
             self.login(for: username, with: password, session: session) { result in
-                continuation.resume(with: result)
+                switch result {
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                case .success(let service):
+                    continuation.resume(returning: service)
+                }
             }
         }
     }
