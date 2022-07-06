@@ -11,13 +11,14 @@ import Foundation
 public struct Lesson: Codable, Hashable {
     
     /// The initializer for the struct.
-    public init(title: String, start: Date, end: Date, description: String, room: String, instructor: String) {
+    public init(title: String, start: Date, end: Date, description: String, room: String, instructor: String, remarks: String) {
         self.title = title
         self.start = start
         self.end = end
         self.description = description
         self.room = room
         self.instructor = instructor
+        self.remarks = remarks
     }
     
     /// The title of the lesson.
@@ -32,6 +33,8 @@ public struct Lesson: Codable, Hashable {
     public var room: String
     /// The instructor of the lesson.
     public var instructor: String
+    /// The remarks of the lesson.
+    public var remarks: String
     
     enum CodingKeys: String, CodingKey {
         case title = "title"
@@ -40,8 +43,9 @@ public struct Lesson: Codable, Hashable {
         case description = "description"
         case room = "room"
         case instructor = "instructor"
+        case remarks = "remarks"
     }
     
     /// An example lesson
-    public static let example = Lesson(title: "Example lesson", start: Date.init(timeIntervalSince1970: 1793097900), end: Date.init(timeIntervalSince1970: 1793103300), description: "This is an example lesson", room: "1.202", instructor: "Prof. Dr. Example")
+    public static let example = Lesson(title: "Example lesson", start: Date.init(timeIntervalSince1970: 1793097900), end: Date.init(timeIntervalSince1970: 1793103300), description: "This is an example lesson", room: "1.202", instructor: "Prof. Dr. Example", remarks: "Group A")
 }
